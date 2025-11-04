@@ -260,29 +260,26 @@ img, svg {
   margin-top: -32px;
   padding-block: 60px 48px;
   color: #0f172a;
-  z-index: 2;
 }
 
 /* 1️⃣ Container alignment - same padding as hero */
-.about__grid {
+.container-about__grid {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 1.8rem;                        /* tighter gap between map & text */
-  max-width: 1200px;
+  justify-content: center;                     /* tighter gap between map & text */
+  width: auto;
   margin-inline: auto;
-  padding-inline: 20px;               /* matches your .container’s 20px */
-  justify-content: flex-start;        /* align to left */
 }
 
 /* 2️⃣ Map styling */
 .about__image {
   width: 150px;
   height: auto;
-  flex: 0 0 auto;
 }
 
 .about__image img {
-  width: clamp(100px, 14vw, 150px);
+ width: clamp(100px, 14vw, 150px);
   height: auto;
   opacity: 0.7;
   filter: grayscale(100%);
@@ -291,7 +288,6 @@ img, svg {
 /* 3️⃣ Text styling */
 .about__text {
   margin-left: clamp(-40px, -2vw, -20px);
-  flex: 1;
   text-align: left;
 }
 
@@ -400,23 +396,17 @@ img, svg {
   }
 }
 
-/* RIGHT: text block */
-.section-label {
-  display: inline-block;
-  font-size: 0.85rem;
-  color: #6b7280;
-  margin-bottom: 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 100px;
-  padding: 4px 14px;
-  background: #fff;
-}
 
+/* RIGHT: text block */
+
+.about-feature__text{
+  margin-top: -64px;
+  margin-bottom: 64px;
+}
 .about-feature__text h2 {
   font-weight: 700;
   font-size: clamp(2rem, 1.3rem + 1.6vw, 2.5rem);
   color: #0f172a;
-  margin-bottom: 1rem;
 }
 
 .about-feature__text .accent {
@@ -440,23 +430,28 @@ img, svg {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  column-gap: 1rem;
 }
 
 .feature-list li {
   display: flex;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  line-height: 1.2rem;
+  width: 100%;
   gap: 10px;
   color: #4b5563;
   line-height: 1.6;
 }
 
-.feature-list li img {
+.feature-list li .fa-solid {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  margin-top: 4px;
+  margin-top: 12px;
+  align-items: center;
 }
 .about-feature__grid{
   grid-template-columns: 1.3fr 1fr;   /* was 1.1fr 1fr */
@@ -611,17 +606,6 @@ img, svg {
     max-width: 1200px;
     margin-inline: auto;
     padding-inline: 20px;
-  }
-
-  .section-label{
-    display:inline-block;
-    font-size:.85rem;
-    color:#6b7280;
-    border:1px solid #e5e7eb;
-    border-radius:999px;
-    background:#fff;
-    padding:6px 14px;
-    margin-bottom:10px;
   }
 
   .collab__text h2{
@@ -1674,6 +1658,175 @@ img, svg {
     .nav-toggle { display: flex; }
   }
   
+  /* 1. Show nav toggle below 900px */
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: flex;
+  }
 
+  .nav__list {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
 
+  .nav__list.open {
+    display: flex;
+  }
+}
 
+/* 2. Pricing cards stack better on phones */
+@media (max-width: 768px) {
+  .pricing__cards {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pricing__asset {
+    left: 50%;
+    bottom: -80px;
+    transform: translateX(-50%);
+  }
+}
+
+/* 3. Testimonials: ensure 1 column on very small screens */
+@media (max-width: 480px) {
+  .testimonials__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    padding: 20px;
+    min-height: auto;
+  }
+}
+
+/* 4. Footer grid on mobile */
+@media (max-width: 720px) {
+  .footer__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* 5. Hero grid responsiveness */
+@media (max-width: 768px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .hero__media img {
+    max-width: 90%;
+    margin-inline: auto;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-feature__grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fdf7f2; /* beige background */
+    padding: 2rem 1rem;
+    position: relative;
+    text-align: center;
+  }
+
+  .about-feature__grid img {
+    width: 80%;
+    height: auto;
+    margin-bottom: 1rem;
+    z-index: 1;
+  }
+
+  .about-feature__tags {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 2;
+  }
+
+  .about-feature__tags span {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    border-radius: 5px;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  .tag-purple { background-color: #6C63FF; }
+  .tag-orange { background-color: #D7593A; }
+}
+@media (max-width: 768px) {
+  .collab__grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .collab__art {
+    background-color: #fbeff5; /* light pink */
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+
+  .collab__art img {
+    width: 80%;
+    height: auto;
+  }
+
+  .collab__text {
+    background-color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .modules__tabs {
+    display: none; /* hide pills on mobile */
+  }
+
+  .modules__content {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .tab-pane {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing__asset {
+    display: none !important;
+  }
+}
