@@ -91,7 +91,7 @@ img, svg {
   background: #ff6a4a;
   color: #fff;
   padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+  border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
   transition: background 0.3s;
@@ -234,7 +234,15 @@ img, svg {
 }
 .btn--ghost:hover{ border-color: rgba(255,255,255,.7); }
 
-.hero__actions{ display:flex; gap:14px; flex-wrap:wrap; }
+.hero__actions .email-hero { display:flex;
+ gap:20px; flex-wrap:wrap; }
+
+.email-hero .input{
+  width: 90%; height: 44px; border-radius: 20px; border: 0;
+  background: #fafafa; color: #fff;
+  padding: 0 16px; outline: none;
+}
+.email-hero input::placeholder{ color:#c9cff2; font-size:.95rem; }
 
 /* Mockup card styling to match rounded device feel */
 .hero__media{
@@ -438,7 +446,7 @@ img, svg {
 .feature-list li {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   line-height: 1.2rem;
   width: 100%;
   gap: 10px;
@@ -1450,16 +1458,16 @@ img, svg {
   color: #eef1ff;
 }
 
-.newsletter{
-  display: grid; grid-template-columns: 1fr auto; gap: 10px;
+
+.newsletter-footer {
+  display: flex;
   align-items: center;
+  gap: 12px;
 }
-.newsletter input{
-  width: 90%; height: 44px; border-radius: 999px; border: 0;
-  background: #12183a; color: #fff;
-  padding: 0 16px; outline: none;
-}
-.newsletter input::placeholder{ color:#c9cff2; font-size:.95rem; }
+
+
+
+.newsletter-footer input::placeholder{ color:#c9cff2; font-size:.95rem; }
 
 /* a11y helper */
 .visually-hidden{
@@ -1497,6 +1505,10 @@ img, svg {
   }
   .hero__actions {
     justify-content: center;
+  }
+  .hero__actions .email-hero{
+    justify-content: center;
+    align-items: center;
   }
 
   /* stack columns + adjust hero sizing */
@@ -1607,6 +1619,7 @@ img, svg {
   .about-feature__text {
     max-width: 640px;
     width: 100%;
+    justify-content: flex-start;
   }
   .about-feature__text h2 {
     font-size: 1.78rem;
@@ -1803,30 +1816,173 @@ img, svg {
   }
 }
 
-@media (max-width: 768px) {
-  .modules__tabs {
-    display: none; /* hide pills on mobile */
-  }
-
-  .modules__content {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 1rem;
-    padding: 1rem;
-  }
-
-  .tab-pane {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
-    min-width: 100%;
-    box-sizing: border-box;
-  }
-}
 
 @media (max-width: 768px) {
   .pricing__asset {
     display: none !important;
   }
+}
+
+/* === ABOUT FEATURE: IMAGE CARD STYLE ON MOBILE === */
+@media (max-width: 768px) {
+  .about-feature__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  /* Remove full-width background if you have it on the section */
+  .about-feature {
+    background: #ffffff; /* keep page white on mobile */
+  }
+
+  .about-feature__image {
+    background: #FFE9D8;         /* your beige */
+    border-radius: 4px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+  }
+ 
+
+  .about-feature__image img {
+    max-width: 200%;
+    height: auto;
+    display: block;
+    max-height: 100%;  
+    justify-content: center;   
+    align-items: center;  /* stretch but preserve ratio */    /* ensure full image is visible */
+       transform: translateY(48px) translateX(50px) scale(1.18);  
+
+  }
+  }
+
+  /* Make the tags sit nicely on the card on small screens */
+  .about-feature__image .tag {
+    position: absolute;
+  }
+
+  .about-feature__text {
+    text-align: center;
+  }
+
+/* ====== BASE MODULE TAB BEHAVIOUR ====== */
+
+/* By default, hide all tab panes */
+.modules__cards-wrapper .tab-content {
+  display: none;
+}
+
+/* Only show the active tab pane (JS toggles this class) */
+.modules__cards-wrapper .tab-content.active {
+  display: block;
+}
+
+/* ============ MODULES – FINAL MOBILE FIX ============*/
+@media (max-width: 760px) {
+
+  /* 1) Hide tabs completely */
+  .module-intro-section .modules__tabs {
+    display: none !important;
+  }
+
+  /* 2) Hide the small testimonial+metric card in each module */
+  .module-intro-section .module-testimonial-card {
+    display: none !important;
+  }
+
+  /* 3) Make the wrapper a horizontal slider */
+  .module-intro-section .modules__cards-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    gap: 1rem;
+    padding: 0 1rem 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  /* 4) FORCE all tab-content to show as slides */
+  .module-intro-section .modules__cards-wrapper .tab-content {
+    display: block !important;      /* override .tab-content {display:none} */
+    flex: 0 0 100%;                 /* each slide = full width */
+    scroll-snap-align: start;
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    height: auto !important;
+  }
+
+  /* 5) Make sure the inner cards lay out normally */
+  .module-intro-section .modules__cards {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .module-intro-section .obiri-card {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .module-intro-section .obiri-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+  }
+}
+
+/* === TESTIMONIAL CARDS: FIX OVERLAP ON MOBILE === */
+@media (max-width: 768px) {
+  .testimonials__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .testimonial-card {
+    width: 100%;
+    margin: 0 !important;
+    transform: none !important;   /* cancel any staggered layout */
+    position: static;             /* just in case there's relative/absolute tricks */
+  }
+}
+
+@media (min-width: 768px) {
+  .module-intro-section .modules__cards-wrapper .tab-content {
+    display: none !important;
+    opacity: 0 !important;
+  }
+  .module-intro-section .modules__cards-wrapper .tab-content.active {
+    display: block !important;
+    opacity: 1 !important;
+  }
+}
+
+
+
+@media (min-width: 769px) {
+  .about-feature__text {
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+}
+
+.email-input {
+  width: 100%;
+  height: 52px;
+  border-radius: 4px;
+  padding: 0 20px;
+  background: #ffffff;
+  color: #0f172a;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.email-input::placeholder {
+  color: #9ca3af;
 }

@@ -21,10 +21,11 @@
 
       <nav class="nav" id="nav">
         <ul class="nav__list">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#solutions">Solutions</a></li>
-          <li><a href="#blog">Pricing</a></li>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about-feature">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#FAQ">FAQ</a></li>
         </ul>
       </nav>
 
@@ -50,11 +51,21 @@
         </p>
 
         <div class="hero__actions">
-          <a href="#demo" class="btn btn--primary">
-            Book a Demo
+           <form class="email-hero" action="#" method="post">
+        <label for="hero-email" class="visually-hidden">E-mail Address</label>
+    <input
+      id="hero-email"
+      class="email-input"
+      name="email"
+      type="email"
+      placeholder="Enter your Email"
+      required
+    >
+         <a href="#demo" class="btn btn--primary">
+            Join Waitlist
             <i class="fa-solid fa-arrow-right icon"></i>
           </a>
-          <a href="#learn" class="btn btn--ghost hero__ghost">Learn more</a>
+           </form>
         </div>
       </div>
 
@@ -130,31 +141,37 @@
     <div class="container collab__grid">
       <!-- LEFT: copy -->
       <div class="collab__text">
-        <h2>Be more in sync with<br> your team in <span class="accent">Obiri</span></h2>
-        <p>
-          No more silos or back-and-forth emails. With OBIRI, your entire team
-          works from the same source of truth — finance, HR, operations, and sales,
-          all connected. Whether you're in a hotel, restaurant, school, or service
-          business, collaboration becomes seamless, fast, and crystal clear.
-        </p>
+       <h2>Manage Every Location<br> From One Central Dashboard</h2>
 
-        <h3>Why teams love it</h3>
-        <ul class="feature-list">
-          <li>
-              <i class="fa-solid fa-chart-line"></i>
-              <strong>Shared Dashboards</strong> – Everyone sees the same numbers,
-              the same progress, the same updates. Transparency builds trust.
-            </li>
-            <li>
-              <i class="fa-solid fa-rotate-right"></i>
-              <strong>Real-Time Updates</strong> – Changes made in Lagos show
-              instantly in Abuja. No delays, no missing data.
-            </li>
-            <li>
-              <i class="fa-solid fa-circle-check"></i>
-              <strong>Clear Accountability</strong> – Assign tasks, track owners,
-              and never lose sight of responsibilities again.
-          </li>
+<p>
+  Whether you run multiple branches, warehouses, outlets, or an entire group of 
+  businesses, OBIRI keeps everything connected. Each location operates 
+  independently — but you still get full oversight of sales, stock, expenses, 
+  staff activity, and performance in real time.
+</p>
+
+<h3>Why multi-location businesses rely on OBIRI</h3>
+<ul class="feature-list">
+  <li>
+    <i class="fa-solid fa-network-wired"></i>
+    <strong>Centralized Control</strong> – Monitor all branches from a single 
+    dashboard without disrupting how each team works locally.
+  </li>
+
+  <li>
+    <i class="fa-solid fa-layer-group"></i>
+    <strong>Multi-Tenant Separation</strong> – Each location or business unit 
+    gets its own clean environment, data, and permissions — but you can switch 
+    between them instantly.
+  </li>
+
+  <li>
+    <i class="fa-solid fa-globe-africa"></i>
+    <strong>Unified Reporting</strong> – Compare performance across locations, 
+    track trends, spot low stock, and make decisions backed by real numbers.
+  </li>
+</ul>
+
 
         </ul>
       </div>
@@ -167,9 +184,10 @@
     </div>
   </section>
     <!-- Modules Section -->
-  <section class="module-intro-section">
+  <section id="features"
+  class="module-intro-section">
       <div class="module-intro-container">
-           <div class="module-intro-label">How we work</div>
+           
             <h2 class="module-intro-title">Most Used Modules</h2>
             <p class="module-intro-description">No more scattered spreadsheets. No more blind spots. Just one clear view of your business.</p>
         </div>
@@ -194,17 +212,17 @@
           has improved dramatically.”
         </p>
         <div class="user">
-          <img src="assets/img/adewale.png" alt="Adewale Adetayo">
+          <img src="assets/img/avatar/User-7.jpg" alt="Adewale Adetayo">
           <div class="user__info">
             <strong>Adewale Adetayo</strong>
             <span>Account Manager</span>
           </div>
         </div>
         <div class="metric-card">
-          <img src="assets/icons/graph.svg" alt="">
+          <i class="fa-solid fa-arrow-trend-up"></i>
           <div>
             <strong>Sa ire</strong><br>
-            <small>92% reduction in reconciliation errors</small>
+            <small>92% reduction in errors</small>
           </div>
         </div>
       </div>
@@ -225,14 +243,14 @@
       <div class="module-testimonial-card">
         <p>“With OBIRI Finance, we now close our books in hours, not weeks...”</p>
         <div class="user">
-          <img src="assets/img/user2.png" alt="Chioma Ade">
+          <img src="assets/img/avatar/User-6.jpg" alt="Chioma Ade">
           <div class="user__info">
             <strong>Chioma Ade</strong>
             <span>Finance Lead</span>
           </div>
         </div>
         <div class="metric-card">
-          <img src="assets/icons/pie.svg" alt="">
+          <i class="fa-solid fa-arrow-trend-up"></i>
           <div>
             <strong>OBIRI Finance</strong><br>
             <small>80% faster monthly reports</small>
@@ -252,14 +270,14 @@
       <div class="module-testimonial-card">
         <p>“OBIRI streamlined our business operations into one dashboard...”</p>
         <div class="user">
-          <img src="assets/img/user3.png" alt="David Osei">
+          <img src="assets/img/avatar/User-5.jpg" alt="David Osei">
           <div class="user__info">
             <strong>David Osei</strong>
             <span>Operations Manager</span>
           </div>
         </div>
         <div class="metric-card">
-          <img src="assets/icons/ops.svg" alt="">
+          <i class="fa-solid fa-arrow-trend-up"></i>
           <div>
             <strong>Efficiency</strong><br>
             <small>70% less process delays</small>
@@ -396,7 +414,7 @@
     <!-- Card 1 -->
     <article class="testimonial-card">
       <header class="t-head">
-        <img class="t-avatar" src="assets/img/avatars/user-1.jpg" alt="David Beckham" />
+        <img class="t-avatar" src="assets/img/avatar/User-4.jpg" alt="David Beckham" />
         <div class="t-id">
           <h3>David Beckham</h3>
           <small>COO at Sa’IRE</small>
@@ -408,15 +426,15 @@
         pricing without slowing IT. Our booking errors dropped by 30%.
       </p>
       <div class="t-meta">
-        <img src="assets/icons/location.svg" alt="" />
-        <span>Lagos</span>
+       <i class="fa-solid fa-location-dot"></i>
+      <span>Lagos</span>
       </div>
     </article>
 
     <!-- Card 2 -->
     <article class="testimonial-card">
       <header class="t-head">
-        <img class="t-avatar" src="assets/img/avatars/user-2.jpg" alt="Olivia Moore" />
+        <img class="t-avatar" src="assets/img/avatar/User-2.jpg" alt="Olivia Moore" />
         <div class="t-id">
           <h3>Olivia Moore</h3>
           <small>CEO at Emmaag</small>
@@ -427,7 +445,7 @@
         Now, with Obiri’s order system, we create accurate sales orders in minutes.
       </p>
       <div class="t-meta">
-        <img src="assets/icons/location.svg" alt="" />
+       <i class="fa-solid fa-location-dot"></i>
         <span>Ibadan</span>
       </div>
     </article>
@@ -435,7 +453,7 @@
     <!-- Card 3 -->
     <article class="testimonial-card">
       <header class="t-head">
-        <img class="t-avatar" src="assets/img/avatars/user-3.jpg" alt="Marie Jane" />
+        <img class="t-avatar" src="assets/img/avatar/User-3.jpg" alt="Marie Jane" />
         <div class="t-id">
           <h3>Marie Jane</h3>
           <small>CFO at Ijinle</small>
@@ -446,13 +464,13 @@
         and send them to clients without errors.
       </p>
       <div class="t-meta">
-        <img src="assets/icons/location.svg" alt="" />
+       <i class="fa-solid fa-location-dot"></i>
         <span>Abuja</span>
       </div>
     </article>
   </div>
 </section>
-<section id="faq" class="faq">
+<section id="FAQ" class="faq">
   <!-- 1) Heading -->
   <div class="container faq__intro">
     <span class="section-label">FAQ</span>
@@ -587,7 +605,7 @@
       <span class="fcard__eyebrow">OBIRI</span>
       <ul class="fcard__links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About us</a></li>
+        <li><a href="#about-feature">About us</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#pricing">Pricing</a></li>
       </ul>
@@ -598,14 +616,16 @@
       <span class="fcard__eyebrow">Newsletter</span>
       <h3 class="fcard__title">Subscribe for monthly updates</h3>
 
-      <form class="newsletter" action="#" method="post">
-        <label for="nl-email" class="visually-hidden">E-mail Address</label>
-        <input id="nl-email" name="email" type="email" placeholder="Enter your Email" required>
-        <button class="btn btn--pill btn--primary" type="submit">Subscribe</button>
-      </form>
+      <form class="newsletter-footer" action="#" method="post">
+          <label for="footer-email" class="visually-hidden">E-mail Address</label>
+          <input id="footer-email" name="email" type="email" 
+                class="email-input" placeholder="Enter your Email" required>
+          <button class="btn btn--pill btn--primary" type="submit">Subscribe</button>
+</form>
     </div>
   </div>
 </footer>
+
 
     </body>
 
